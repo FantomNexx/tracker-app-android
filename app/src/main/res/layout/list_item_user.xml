@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:id="@+id/root_view"
+   android:layout_width="match_parent"
+   android:layout_height="wrap_content"
+   android:paddingTop="8dp"
+   android:paddingBottom="8dp"
+   android:background="?attr/selectableItemBackground"
+   android:clickable="false"
+   android:descendantFocusability="blocksDescendants"
+   android:focusable="false"
+   android:focusableInTouchMode="false"
+   android:gravity="center_vertical">
+
+
+   <RelativeLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="16dp"
+      android:background="@drawable/ic_bullet_24dp">
+
+      <ImageView
+         android:id="@+id/iv_icon"
+         android:layout_width="24dp"
+         android:layout_height="24dp"
+         android:layout_centerInParent="true" />
+   </RelativeLayout>
+
+
+    <TextView
+       android:id="@+id/tv_name"
+       style="@style/text_dark_medium"
+       android:layout_marginStart="62dp"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_centerVertical="true"
+       android:layout_marginEnd="@dimen/list_item_margin_sides"
+       android:text="Car" />
+
+</RelativeLayout>

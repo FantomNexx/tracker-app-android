@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:appData="http://schemas.android.com/apk/res-auto">
+
+  <item
+    android:id="@+id/menu_item_toggle_track"
+    android:title="@string/start_track"
+    appData:showAsAction="always"/>
+
+  <item
+    android:id="@+id/menu_item_refresh"
+    android:title="@string/refresh"/>
+
+  <item
+    android:id="@+id/menu_item_sync"
+    android:title="@string/sync"/>
+
+  <item
+    android:id="@+id/menu_item_exp"
+    android:title="@string/restart"/>
+
+</menu>

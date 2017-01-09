@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:id="@+id/navigation_header"
+   android:layout_width="match_parent"
+   android:layout_height="190dp"
+   android:background="@color/primary"
+   android:orientation="vertical">
+
+   <com.fantomsoftware.tracker.cmps.CmpCircleAvatar
+      android:id="@+id/profile_image"
+      android:layout_width="76dp"
+      android:layout_height="76dp"
+      android:layout_alignParentStart="true"
+      android:layout_centerVertical="true"
+      android:layout_marginStart="16dp"
+      android:src="@drawable/avatar_default" />
+
+   <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/profile_image"
+      android:layout_alignStart="@id/profile_image"
+      android:layout_marginTop="8dp">
+
+      <TextView
+         android:id="@+id/btn_authorization"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:visibility="gone"
+         android:background="@drawable/bg_btn_text_white"
+         android:gravity="end"
+         android:layout_centerVertical="true"
+         android:layout_alignParentEnd="true"
+         android:layout_marginEnd="8dp"
+         android:paddingStart="12dp"
+         android:paddingEnd="12dp"
+         android:paddingTop="12dp"
+         android:paddingBottom="12dp"
+         android:text="@string/drawer_sign_out"
+         android:clickable="true"
+         android:textColor="@color/navigation_primary"
+         android:textSize="14sp" />
+
+      <TextView
+         android:id="@+id/tv_user_anonymous"
+         android:visibility="visible"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:gravity="start"
+         android:layout_centerVertical="true"
+         android:layout_alignParentStart="true"
+         android:layout_toStartOf="@id/btn_authorization"
+         android:text="@string/drawer_user_anonym"
+         android:textColor="@color/navigation_primary"
+         android:textSize="14sp"
+         android:textStyle="bold" />
+
+      <TextView
+         android:id="@+id/tv_username"
+         android:visibility="invisible"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:gravity="start"
+         android:layout_alignParentTop="true"
+         android:layout_alignParentStart="true"
+         android:layout_toStartOf="@id/btn_authorization"
+         android:layout_marginBottom="2dp"
+         android:text="@string/drawer_default_name"
+         android:textColor="@color/navigation_primary"
+         android:textSize="14sp"
+         android:textStyle="bold" />
+
+      <TextView
+         android:id="@+id/tv_email"
+         android:visibility="invisible"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:gravity="start"
+         android:layout_below="@id/tv_username"
+         android:layout_alignParentStart="true"
+         android:layout_toStartOf="@id/btn_authorization"
+         android:text="@string/drawer_default_email"
+         android:textColor="@color/navigation_primary"
+         android:textSize="14sp" />
+   </RelativeLayout>
+
+</RelativeLayout>

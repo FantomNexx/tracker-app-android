@@ -21,6 +21,17 @@ $RECYCLE.BIN/
 # Operating System Files
 # =========================
 
+# =========================
+# Android Studio IDE
+# =========================
+.gradle
+.idea
+/build
+/captures
+/app/build
+/volley/build
+
+
 # OSX
 # =========================
 

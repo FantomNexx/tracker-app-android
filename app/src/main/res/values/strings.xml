@@ -1,0 +1,61 @@
+<resources>
+
+  <string name="app_name">Tracker</string>
+
+  <string name="map_style_url">mapbox://styles/nexx/citvcfpk0003k2itbuhu680tc</string>
+  <string name="map_key">pk.eyJ1IjoibmV4eCIsImEiOiJjaW55amVuNmowMHN0dnNrbDZvOXYxa3Z4In0.o2NIZ-Uk4e9qKlBIbQkblw</string>
+
+
+
+  //NAVIGATION DRAWER/////////////////////////////////////////////////
+  <string name="drawer_open">Open navigation drawer</string>
+  <string name="drawer_close">Close navigation drawer</string>
+
+  <string name="drawer_item_track_me">Track Me</string>
+  <string name="drawer_item_track_othes">Track Others</string>
+  <string name="drawer_item_users">Users</string>
+
+  <string name="drawer_user_anonym">Anonymous usage</string>
+  <string name="drawer_default_name">Default Name</string>
+  <string name="drawer_default_email">default@email.com</string>
+  <string name="drawer_sign_in">SIGN IN</string>
+  <string name="drawer_sign_out">SIGN OUT</string>
+
+
+  //FRAGMENTS/////////////////////////////////////////////////////////
+
+  //FRAGEMT TRACK-----------------------------------------------------
+  <string name="fragment_track_me">Track Me</string>
+  <string name="fragment_track_others">Track others</string>
+
+  <string name="start_track">START TRACK</string>
+  <string name="stop_track">STOP TRACK</string>
+  <string name="refresh">REFRESH</string>
+  <string name="sync">SYNC</string>
+  <string name="exp">EXP</string>
+  <string name="restart">RESTART</string>
+
+  <string name="accuracy">accuracy</string>
+  <string name="meters">meters</string>
+
+
+
+  //FRAG USERS--------------------------------------------------------
+  <string name="fragment_users_title">Users</string>
+
+
+  //APP INIT AND PERMISSIONS//////////////////////////////////////////
+  <string name="app_init_completed">Initialization completed</string>
+  <string name="app_init_initialization">Initialization</string>
+  <string name="app_init_failed">Initialization failed</string>
+  <string name="app_init_failed_end">App cannot be started, components were not loaded.</string>
+
+  <string name="app_int_btn_close">CLOSE APP</string>
+
+  <string name="permission_app_needs_internet">App needs INTERNET permission to run.</string>
+  <string name="permission_app_needs_storage">App needs STORAGE permission to run.</string>
+  <string name="permission_app_needs_location">App needs LOCATION permission to run.</string>
+
+  <string name="permission_btn_choose">CHOOSE</string>
+
+</resources>

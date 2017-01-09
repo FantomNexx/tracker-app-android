@@ -1,0 +1,102 @@
+<resources>
+    <!--
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <item name="colorPrimary">@color/primary</item>
+    <item name="colorPrimaryDark">@color/primary_dark</item>
+
+    <item name="windowActionBar">false</item>
+    <item name="windowActionModeOverlay">true</item>
+    </style>
+    -->
+
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+
+        <item name="android:textColorPrimary">@color/text_primary
+        </item>
+        <item name="android:textColorSecondary">
+            @color/text_secondary
+        </item>
+
+        <item name="android:windowBackground">
+            @color/window_background
+        </item>
+
+        <item name="android:colorControlHighlight">@color/ripple
+        </item>
+
+        <item name="android:statusBarColor">@color/primary_dark</item>
+        <!--
+        <item name="android:colorBackground">
+          @color/accent
+        </item>
+        -->
+    </style>
+
+
+    <style name="MyToolbar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textColorPrimary">@color/text_primary
+        </item>
+        <item name="android:textColorSecondary">
+            @color/primary_lighter
+        </item>
+        <item name="android:textColorHint">@color/primary_lighter
+        </item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="colorAccent">@color/accent</item>
+
+        <item name="android:itemBackground">@drawable/bg_default
+        </item>
+        <item name="android:itemTextAppearance">@style/MyMenuText
+        </item>
+    </style>
+
+    <style name="MyMenuText" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textColor">@color/grey_900</item>
+    </style>
+
+
+    <style name="text_dark_regular">
+        <item name="android:textSize">@dimen/text_size_normal</item>
+        <item name="android:textColor">@color/grey_900</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="text_dark_medium">
+        <item name="android:textSize">@dimen/text_size_normal</item>
+        <item name="android:textColor">@color/grey_900</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="text_dark_caption">
+        <item name="android:textSize">@dimen/text_size_caption</item>
+        <item name="android:textColor">@color/grey_600</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="text_dark_caption_normal">
+        <item name="android:textSize">@dimen/text_size_normal</item>
+        <item name="android:textColor">@color/grey_600</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="MyButton" parent="Base.Widget.AppCompat.Button">
+        <item name="colorButtonNormal">@color/primary</item>
+        <item name="android:textColor">@color/white_300</item>
+
+    </style>
+
+
+    <style name="BottomSheetMy" parent="BottomSheet.Dialog">
+        <item name="android:backgroundDimAmount">0.5</item>
+        <item name="android:textColorPrimary">#212121</item>
+        <item name="android:textColorSecondary">#757575</item>
+    </style>
+
+
+</resources>
