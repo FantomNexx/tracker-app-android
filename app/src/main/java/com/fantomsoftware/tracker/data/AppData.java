@@ -208,25 +208,6 @@ public static void UpdatingStop(){
 
 
 //--------------------------------------------------------------------
-public static void ServiceStartSyncing(){
-  ServiceStart( ServiceSyncing.class );
-}
-//--------------------------------------------------------------------
-public static void ServiceStopSyncing(){
-  //ServiceStop( ServiceSyncing.class );
-}
-//--------------------------------------------------------------------
-public static void ServiceStartTracking(){
-  //ServiceStart( ServiceTracking.class );
-}
-//--------------------------------------------------------------------
-public static void ServiceStopTracking(){
-  //ServiceStop( ServiceTracking.class );
-}
-//--------------------------------------------------------------------
-
-
-//--------------------------------------------------------------------
 public static boolean IsTracking(){
   return Utils.GetSharedPrefBool( AppData.IS_TRACKING );
   //return Utils.IsServiceRunning( ServiceTracking.class );

@@ -28,12 +28,6 @@
         <service
             android:name="com.mapbox.mapboxsdk.telemetry.TelemetryService"/>
 
-        <!--
-        <service
-            android:name=".services.ServiceSyncing"
-            android:exported="false"/>
-        -->
-
         <receiver
             android:name="com.fantomsoftware.tracker.services.BroadcastReceiverSync"
             android:enabled="true" >
