@@ -66,17 +66,17 @@ private void SaveTrackPoint( TrackPoint point ){
   }//if too bad accuracy
 
 
-  if( AppData.instance.db_track_points == null ){
-    AppData.instance.InitDatabase();
+  if( AppData.app_instance.db_track_points == null ){
+    AppData.app_instance.InitDatabase();
   }//if no database
 
   //if we could not init database
-  if( AppData.instance.db_track_points == null ){
+  if( AppData.app_instance.db_track_points == null ){
     return;
   }//if database cannot be inited
 
 
-  AppData.instance.db_track_points.Add( point );
+  AppData.app_instance.db_track_points.Add( point );
 
   last_point = point;
 }

@@ -142,7 +142,7 @@ private void CheckLocationSettings(){
 
               try{
                 status.startResolutionForResult(
-                    AppData.instance.activity,
+                    AppData.app_instance.activity,
                     ConstsAct.REQUEST_LOCATION_SETTINGHS );
 
               }catch( IntentSender.SendIntentException e ){

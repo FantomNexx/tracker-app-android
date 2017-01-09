@@ -176,10 +176,6 @@ private void InitMap(){
 
   map_view = (MapView) root_view.findViewById( R.id.map );
 
-  if( map_view == null ){
-    return;
-  }//if
-
   map_view.onCreate( null );
 
   OnMapReadyCallback on_map_ready = new OnMapReadyCallback(){
@@ -198,8 +194,6 @@ private void InitMap(){
 }
 //--------------------------------------------------------------------
 private void InitMapIcons(){
-
-  if( AppData.context == null ) return;
 
   IconFactory factory = IconFactory.getInstance( AppData.context );
 
@@ -265,8 +259,6 @@ private void UpdateABMenuItem(){
 //--------------------------------------------------------------------
 public void Map_UpdateTrack(){
 
-  //Log.d( AppData.log_key, "Frag_TrackMe.Map_UpdateTrack() START" );
-
   OnResultTrackArray on_result = new OnResultTrackArray(){
     @Override
     public void OnResult( SparseArray<TrackPoint> track ){
@@ -278,15 +270,11 @@ public void Map_UpdateTrack(){
   Task_PointsGetLatest task = new Task_PointsGetLatest();
   task.SetOnResult( on_result );
   task.executeOnExecutor( AsyncTask.THREAD_POOL_EXECUTOR );
-  //AsyncTask.Status status = task.getStatus();
-
-  //Log.d( AppData.log_key, "Frag_TrackMe.Map_UpdateTrack() END" );
 }
 //--------------------------------------------------------------------
 private void Map_DrawTrack( SparseArray<TrackPoint> track ){
 
   Log.d( AppData.log_key, "Frag_TrackMe.Map_DrawTrack()" );
-  //Log.d( AppData.log_key, "Frag_TrackMe.Map_DrawTrack() START" );
 
   if( map == null ) return;
   if( track == null ) return;

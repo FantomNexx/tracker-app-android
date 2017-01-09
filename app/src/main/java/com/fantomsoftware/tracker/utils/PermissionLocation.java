@@ -32,11 +32,11 @@ public class PermissionLocation extends Permission{
 
     boolean is_should_coarse_location =
         ActivityCompat.shouldShowRequestPermissionRationale(
-            AppData.instance.activity, Manifest.permission.ACCESS_COARSE_LOCATION );
+            AppData.app_instance.activity, Manifest.permission.ACCESS_COARSE_LOCATION );
 
     boolean is_should_fine_location =
         ActivityCompat.shouldShowRequestPermissionRationale(
-            AppData.instance.activity, Manifest.permission.ACCESS_FINE_LOCATION );
+            AppData.app_instance.activity, Manifest.permission.ACCESS_FINE_LOCATION );
 
     if( !(is_should_coarse_location && is_should_fine_location) ){
       RequestUser();
@@ -46,7 +46,7 @@ public class PermissionLocation extends Permission{
 
     //if access already blocked - let user know
 
-    View view = AppData.instance.activity.findViewById( android.R.id.content );
+    View view = AppData.app_instance.activity.findViewById( android.R.id.content );
     String msg = Utils.GetString( R.string.permission_app_needs_location );
     String action_text = Utils.GetString( R.string.permission_btn_choose );
 
@@ -76,7 +76,7 @@ public class PermissionLocation extends Permission{
     };//permissions
 
     ActivityCompat.requestPermissions(
-        AppData.instance.activity, permissions, ConstsAct.REQUEST_LOCATION );
+        AppData.app_instance.activity, permissions, ConstsAct.REQUEST_LOCATION );
 
   }//RequestUser
   //------------------------------------------------------------------

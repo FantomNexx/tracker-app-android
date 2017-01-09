@@ -274,16 +274,16 @@ private void SetSyncStateToDB( JSONObject data_json ){
     return;
   }//if not points to sync
 
-  if( AppData.instance.db_track_points == null ){
-    AppData.instance.InitDatabase();
+  if( AppData.app_instance.db_track_points == null ){
+    AppData.app_instance.InitDatabase();
   }//if no database
 
   //if we could not init database
-  if( AppData.instance.db_track_points == null ){
+  if( AppData.app_instance.db_track_points == null ){
     return;
   }//if database cannot be inited
 
-  AppData.instance.db_track_points.SetSyncedState( list_points_synced );
+  AppData.app_instance.db_track_points.SetSyncedState( list_points_synced );
 }
 //--------------------------------------------------------------------
 

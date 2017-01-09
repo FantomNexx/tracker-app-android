@@ -31,11 +31,11 @@ public class PermissionStorage extends Permission{
 
     boolean is_should_storage_read =
         ActivityCompat.shouldShowRequestPermissionRationale(
-            AppData.instance.activity, Manifest.permission.READ_EXTERNAL_STORAGE );
+            AppData.app_instance.activity, Manifest.permission.READ_EXTERNAL_STORAGE );
 
     boolean is_should_storage_write =
         ActivityCompat.shouldShowRequestPermissionRationale(
-            AppData.instance.activity, Manifest.permission.WRITE_EXTERNAL_STORAGE );
+            AppData.app_instance.activity, Manifest.permission.WRITE_EXTERNAL_STORAGE );
 
     if( !(is_should_storage_read && is_should_storage_write) ){
       RequestUser();
@@ -45,7 +45,7 @@ public class PermissionStorage extends Permission{
 
     //if access already blocked - let user know
 
-    View view = AppData.instance.activity.findViewById( android.R.id.content );
+    View view = AppData.app_instance.activity.findViewById( android.R.id.content );
     String msg = Utils.GetString( R.string.permission_app_needs_storage );
     String action_text = Utils.GetString( R.string.permission_btn_choose );
 
@@ -75,7 +75,7 @@ public class PermissionStorage extends Permission{
     };//permissions
 
     ActivityCompat.requestPermissions(
-        AppData.instance.activity, permissions, ConstsAct.REQUEST_STORAGE );
+        AppData.app_instance.activity, permissions, ConstsAct.REQUEST_STORAGE );
 
   }//RequestUser
   //------------------------------------------------------------------

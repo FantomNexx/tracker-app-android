@@ -113,8 +113,8 @@ public class Frag_ListUsers extends Fragment{
     };//on_item_click
 
 
-    AppData.instance.user_db.UpdateLocal();
-    data = AppData.instance.user_db.users;
+    AppData.app_instance.user_db.UpdateLocal();
+    data = AppData.app_instance.user_db.users;
 
     adapter = new RecycleA_Users( data );
     adapter.SetOnListItemClick( on_item_click );
@@ -157,7 +157,7 @@ public class Frag_ListUsers extends Fragment{
       public void onClick( DialogInterface dialog, int which ){
         switch( which ){
           case R.id.bs_delete:
-            if( AppData.instance.user_db.Remove( item_id ) != -1 ){
+            if( AppData.app_instance.user_db.Remove( item_id ) != -1 ){
               data.remove( item_id );
               adapter.Update();
               Utils.SnackL( root_view, getString( R.string.bottom_sheet_delete_snack_success ) );
@@ -215,7 +215,7 @@ public class Frag_ListUsers extends Fragment{
     }//if
 
     int id = extras.getInt( ConstsAct.KEY_ID );
-    User item = AppData.instance.user_db.Get( id );
+    User item = AppData.app_instance.user_db.Get( id );
 
     Utils.AppendItem( data, item );
 
@@ -231,7 +231,7 @@ public class Frag_ListUsers extends Fragment{
     }//if
 
     int id = extras.getInt( ConstsAct.KEY_ID );
-    User item = AppData.instance.user_db.Get( id );
+    User item = AppData.app_instance.user_db.Get( id );
 
     boolean is_found = false;
     for( int i = 0; i < data.size(); i++ ){

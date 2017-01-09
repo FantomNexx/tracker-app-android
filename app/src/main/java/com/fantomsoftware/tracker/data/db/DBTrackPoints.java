@@ -154,7 +154,6 @@ public int Add( TrackPoint item ){
 public SparseArray<TrackPoint> GetLatest( int count ){
 
   Log.d( AppData.log_key, "DBTrackPoints.GetLatest()" );
-  //Log.d( AppData.log_key, "DBTrackPoints.GetLatest() START" );
 
   Cursor cursor;
 
@@ -179,9 +178,13 @@ public SparseArray<TrackPoint> GetLatest( int count ){
     return null;
   }//try
 
-  //Log.d( AppData.log_key, "DBTrackPoints.GetLatest() END" );
+  SparseArray<TrackPoint> track_points = CursorToTrackPoints( cursor );
 
-  return CursorToTrackPoints( cursor );
+  if( track_points.size() == 0 ){
+    Utils.SetSharedPref( AppData.SP_POINT_LAST_ID, 0 );
+  }//if
+
+  return track_points;
 }
 //--------------------------------------------------------------------
 public SparseArray<TrackPoint> GetNotSynced( int count ){

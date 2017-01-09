@@ -99,11 +99,11 @@ public static boolean IsServiceRunning( Class<?> service_class ){
 }
 //--------------------------------------------------------------------
 public static void StopService( Intent intent ){
-  AppData.instance.activity.stopService( intent );
+  AppData.app_instance.activity.stopService( intent );
 }
 // --------------------------------------------------------------------
 public static void StartService( Intent intent ){
-  AppData.instance.activity.startService( intent );
+  AppData.app_instance.activity.startService( intent );
 }
 //--------------------------------------------------------------------
 

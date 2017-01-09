@@ -23,7 +23,6 @@ import com.fantomsoftware.tracker.services.BroadcastReceiverSync;
 import com.fantomsoftware.tracker.services.ScheduleSyncing;
 import com.fantomsoftware.tracker.services.ScheduleTracking;
 import com.fantomsoftware.tracker.services.ScheduleUpdating;
-import com.fantomsoftware.tracker.services.ServiceSyncing;
 import com.fantomsoftware.tracker.ui_acts.Act;
 import com.fantomsoftware.tracker.utils.Utils;
 
@@ -31,7 +30,7 @@ import com.fantomsoftware.tracker.utils.Utils;
 public class AppData extends Application{
 //--------------------------------------------------------------------
 public static Context   context      = null;
-public static AppData   instance     = null;
+public static AppData   app_instance = null;
 public static Resources resources    = null;
 public static String    package_name = null;
 public static String    log_key      = null;
@@ -78,7 +77,7 @@ public void onCreate(){
   super.onCreate();
 
   AppData.context = getApplicationContext();//AppData;
-  AppData.instance = (AppData) getApplicationContext();//AppData;
+  AppData.app_instance = (AppData) getApplicationContext();//AppData;
   AppData.package_name = AppData.context.getPackageName();
   AppData.resources = AppData.context.getResources();
   AppData.log_key = "fgg";//AppData.package_name;
@@ -119,7 +118,7 @@ public static void OnPause(){
 
 //--------------------------------------------------------------------
 public static void SetCurrentActivity( AppCompatActivity activity ){
-  AppData.instance.activity = activity;
+  AppData.app_instance.activity = activity;
 }
 //--------------------------------------------------------------------
 private static void InitCrashReporter(){
@@ -129,7 +128,7 @@ private static void InitCrashReporter(){
     return;
   }//if handler already set
 
-  String path = AppData.instance.storage_local.GetAppRootFolder();
+  String path = AppData.app_instance.storage_local.GetAppRootFolder();
 
   Thread.setDefaultUncaughtExceptionHandler(
       new CustomExceptionHandler( path ) );
@@ -140,12 +139,12 @@ private static void InitCrashReporter(){
 //--------------------------------------------------------------------
 public static void ServiceStart( Class<?> service_class ){
   Intent intent = new Intent( AppData.context, service_class );
-  AppData.instance.activity.startService( intent );
+  AppData.app_instance.activity.startService( intent );
 }
 //--------------------------------------------------------------------
 public static void ServiceStop( Class<?> service_class ){
   Intent intent = new Intent( AppData.context, service_class );
-  AppData.instance.activity.stopService( intent );
+  AppData.app_instance.activity.stopService( intent );
 }
 //--------------------------------------------------------------------
 
@@ -394,16 +393,16 @@ private static int TrackerStateGet(){
 //--------------------------------------------------------------------
 private static void SaveTrackPoint( TrackPoint point ){
 
-  if( AppData.instance.db_track_points == null ){
-    AppData.instance.InitDatabase();
+  if( AppData.app_instance.db_track_points == null ){
+    AppData.app_instance.InitDatabase();
   }//if no database
 
   //if we could not init database
-  if( AppData.instance.db_track_points == null ){
+  if( AppData.app_instance.db_track_points == null ){
     return;
   }//if database cannot be inited
 
-  AppData.instance.db_track_points.Add( point );
+  AppData.app_instance.db_track_points.Add( point );
 }
 //--------------------------------------------------------------------
 
@@ -415,7 +414,7 @@ public static void Terminate(){
   ScheduleUpdating.ScheduleShutDown();
 
   try{
-    ((AppData) AppData.instance).db_track_points.close();
+    ((AppData) AppData.app_instance).db_track_points.close();
   }catch( Exception e ){
     Log.d( log_key, "Failed to close DB: " + e.getMessage() );
     CustomExceptionHandler.LogException( e );
@@ -424,8 +423,8 @@ public static void Terminate(){
 //--------------------------------------------------------------------
 public static void TerminateActivity(){
 
-  if( instance.activity != null ){
-    instance.activity.finish();
+  if( app_instance.activity != null ){
+    app_instance.activity.finish();
   }//if
 
   AppData.Terminate();
@@ -441,7 +440,7 @@ public static void RestartNow(){
   Intent intent = package_mng.getLaunchIntentForPackage( package_name );
   intent.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP );
 
-  instance.activity.startActivity( intent );
+  app_instance.activity.startActivity( intent );
 }
 //--------------------------------------------------------------------
 public static void RestartDelayed(){

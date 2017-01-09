@@ -36,16 +36,16 @@ protected SparseArray<TrackPoint> doInBackground( Void... voids ){
 
   Log.d( AppData.log_key, "Task_PointsGetUnsynced" );
 
-  if( AppData.instance.db_track_points == null ){
-    AppData.instance.InitDatabase();
+  if( AppData.app_instance.db_track_points == null ){
+    AppData.app_instance.InitDatabase();
   }//if no database
 
   //if we could not init database
-  if( AppData.instance.db_track_points == null ){
+  if( AppData.app_instance.db_track_points == null ){
     return null;
   }//if database cannot be inited
 
-  return AppData.instance.db_track_points.GetNotSynced( 500 );
+  return AppData.app_instance.db_track_points.GetNotSynced( 500 );
 
 }//doInBackground
 //--------------------------------------------------------------------

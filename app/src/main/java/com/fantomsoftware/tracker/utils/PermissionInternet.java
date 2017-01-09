@@ -32,11 +32,11 @@ public static void Request(){
 
   boolean is_should_storage_read =
       ActivityCompat.shouldShowRequestPermissionRationale(
-          AppData.instance.activity, Manifest.permission.INTERNET );
+          AppData.app_instance.activity, Manifest.permission.INTERNET );
 
   boolean is_should_storage_write =
       ActivityCompat.shouldShowRequestPermissionRationale(
-          AppData.instance.activity, Manifest.permission.ACCESS_NETWORK_STATE );
+          AppData.app_instance.activity, Manifest.permission.ACCESS_NETWORK_STATE );
 
   if( !(is_should_storage_read && is_should_storage_write) ){
     RequestUser();
@@ -45,7 +45,7 @@ public static void Request(){
 
 
   //if access already blocked - let user know
-  View   view        = AppData.instance.activity.findViewById( android.R.id.content );
+  View   view        = AppData.app_instance.activity.findViewById( android.R.id.content );
   String msg         = Utils.GetString( R.string.permission_app_needs_internet );
   String action_text = Utils.GetString( R.string.permission_btn_choose );
 
@@ -75,7 +75,7 @@ public static void RequestUser(){
   };//permissions
 
   ActivityCompat.requestPermissions(
-      AppData.instance.activity, permissions, ConstsAct.REQUEST_INTERNET );
+      AppData.app_instance.activity, permissions, ConstsAct.REQUEST_INTERNET );
 
 }//RequestUser
 //------------------------------------------------------------------

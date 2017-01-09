@@ -73,7 +73,7 @@ protected Boolean doInBackground( Void... param ){
 
 
   publishProgress( 50, 250 );
-  AppData.instance.InitDatabase();
+  AppData.app_instance.InitDatabase();
 
   publishProgress( 100, 400 );
 
@@ -132,7 +132,7 @@ private void OnTaskFailed(){
   String state_failed = Utils.GetString( R.string.app_init_failed );
   on_update.OnResult( state_failed );
 
-  View   view     = AppData.instance.activity.findViewById( android.R.id.content );
+  View   view     = AppData.app_instance.activity.findViewById( android.R.id.content );
   String msg      = Utils.GetString( R.string.app_init_failed_end );
   String btn_text = Utils.GetString( R.string.app_int_btn_close );
 
