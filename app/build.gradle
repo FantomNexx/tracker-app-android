@@ -8,8 +8,8 @@ android {
         applicationId "com.fantomsoftware.tracker"
         minSdkVersion 17
         targetSdkVersion 25
-        versionCode 6
-        versionName "1.7"
+        versionCode 8
+        versionName "1.8"
     }
 
     buildTypes {
@@ -30,10 +30,10 @@ allprojects {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.google.android.gms:play-services-location:10.0.1'
-    compile 'com.android.support:support-v13:25.1.0'
-    compile 'com.android.support:appcompat-v7:25.1.0'
-    compile 'com.android.support:design:25.1.0'
+    compile 'com.google.android.gms:play-services-location:10.2.0'
+    compile 'com.android.support:support-v13:25.2.0'
+    compile 'com.android.support:appcompat-v7:25.2.0'
+    compile 'com.android.support:design:25.2.0'
 
     compile project(':volley')
 

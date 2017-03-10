@@ -60,7 +60,7 @@ public DBTrackPoints(){
   database_helper = new DBHelper( AppData.context );
 }
 //--------------------------------------------------------------------
-private boolean CreatetableIfNotExist(){
+private boolean CreateTableIfNotExist(){
 
   String sql_query = "select DISTINCT tbl_name from " +
       "sqlite_master where tbl_name = '" + TABLE_NAME + "'";
@@ -86,7 +86,7 @@ private boolean CreatetableIfNotExist(){
 
   if( !is_table_exist ){
     try{
-      database.execSQL( DBTrackPoints.GetDBCreateSql() );
+      database.execSQL( GetDBCreateSql() );
     }catch( Exception e ){
       Log.d( AppData.log_key, "DBHelper.onCreate, DB create failed" );
       return false;
@@ -110,7 +110,7 @@ public void open(){
       database = SQLiteDatabase.openDatabase(
           Storage.getFullPathDatabase(), null, flags );
 
-      CreatetableIfNotExist();
+      CreateTableIfNotExist();
     }
   }catch( Exception e ){
     Log.d( AppData.log_key, "DBTrackPoints.close() Failed" + e.getMessage() );
@@ -216,7 +216,7 @@ public SparseArray<TrackPoint> GetNotSynced( int count ){
   return CursorToTrackPoints( cursor );
 }
 //--------------------------------------------------------------------
-public boolean SetSyncedState( List<TrackPoint> points ){
+public boolean SetSyncedState2( List<TrackPoint> points ){
 
   Log.d( AppData.log_key, "DBTrackPoints.SetSyncedState()" );
 
@@ -241,6 +241,10 @@ public boolean SetSyncedState( List<TrackPoint> points ){
 
   }catch( Exception e ){
     Log.d( AppData.log_key, "DBTrackPoints.SetSyncedState: " + e.getMessage() );
+
+    close();
+    open();
+
     return false;
 
   }finally{
@@ -248,6 +252,38 @@ public boolean SetSyncedState( List<TrackPoint> points ){
   }//try
 
   //Log.d( AppData.log_key, "DBTrackPoints.SetSyncedState() END" );
+
+  return true;
+}
+//--------------------------------------------------------------------
+public boolean SetSyncedState( List<TrackPoint> points ){
+
+  if( points.size() < 1 ){
+    return false;
+  }
+
+  Log.d( AppData.log_key, "DBTrackPoints.SetSyncedState()" );
+
+  try{
+
+    String sql = "UPDATE " + TABLE_NAME +
+        " SET " + TrackPoint.COLUMN_IS_SYNCED + " = 1" +
+        " WHERE " + TrackPoint.COLUMN_ID_LOCAL + " IN (";
+
+    for( TrackPoint point : points ){
+      sql += point.id + ",";
+    }//for
+
+    sql = sql.substring( 0, sql.length() - 1 );
+    sql += ")";
+
+    database.execSQL( sql );
+
+  }catch( Exception e ){
+    Log.d( AppData.log_key, "DBTrackPoints.SetSyncedState: " + e.getMessage() );
+
+    return false;
+  }//try
 
   return true;
 }
