@@ -82,7 +82,7 @@ protected Boolean doInBackground( Void... voids ){
   Response.ErrorListener        l_error           = GetOnErrorHandler();
   List<Map<String, String>>     list_request_data = GetListRequests( points );
 
-  String url = "http://fantomsoftware.com/fantom_tracker/tracker-server.php";
+  String url = "https://fantomsoftware.com/fantom_tracker/tracker-server.php";
 
   for( Map<String, String> request_data : list_request_data ){
 

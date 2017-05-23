@@ -43,6 +43,9 @@ public static int TIME_PERIOD_LOC_UPDATE_FASTEST = 1000;//1 seconds
 public static int TIME_PERIOD_LOC_UPDATE_SLOWEST = 5000;//5 seconds
 public static int TIME_PERIOD_MAX_DIFFERENCE     = 3600000;//60 minutes
 
+//111 - av
+//222 - antver
+//333 - natver
 public static String user_current_id       = "111";
 public static String user_current_password = "111";
 public static int    notification_id       = -1;

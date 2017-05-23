@@ -37,7 +37,7 @@ public void Request(){
 
   // Instantiate the RequestQueue.
   RequestQueue queue = Volley.newRequestQueue( AppData.context );
-  String       url   = "http://fantomsoftware.com/fantom_tracker/tracker-server.php";
+  String       url   = "https://fantomsoftware.com/fantom_tracker/tracker-server.php";
 
 
   Response.Listener<JSONObject> l_response = new Response.Listener<JSONObject>(){
